@@ -5,6 +5,15 @@
     <ProjectReference Include="..\RestaurantBooking.Application\RestaurantBooking.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Jobs\" />
+    <Folder Include="Persistence\" />
+    <Folder Include="RabbitMQ\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\Cache\" />
+    <Folder Include="Services\Hub\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
