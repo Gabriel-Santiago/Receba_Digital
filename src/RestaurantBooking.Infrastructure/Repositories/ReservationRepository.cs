@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestaurantBooking.Application.Interfaces.Repositories;
 using RestaurantBooking.Domain.Entities;
 using RestaurantBooking.Infrastructure.Persistence;
 
 namespace RestaurantBooking.Infrastructure.Repositories;
 
-public class ReservationRepository : IReservationRepository
+public class ReservationRepository
 {
     private readonly BookingContext _context;
 
