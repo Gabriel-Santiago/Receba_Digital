@@ -4,5 +4,5 @@ namespace RestaurantBooking.Application.Interfaces.Repositories;
 
 public interface IRestaurantRepository
 {
-    Task<Restaurant?> GetByIdAsync(int id, CancellationToken ct = default);
+    Task<Restaurant?> GetByIdAsync(Guid id, CancellationToken ct = default);
 }

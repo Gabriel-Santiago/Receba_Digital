@@ -14,9 +14,9 @@ public class RestaurantRepository : IRestaurantRepository
         _context = context;
     }
 
-    public async Task<Restaurant?> GetByIdAsync(int id, CancellationToken ct = default)
+    public async Task<Restaurant?> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
         return await _context.Restaurants
-            .FirstOrDefaultAsync(r => r.Id == id, ct);
+            .FirstOrDefaultAsync(r => r.Id.Equals(id), ct);
     }
 }

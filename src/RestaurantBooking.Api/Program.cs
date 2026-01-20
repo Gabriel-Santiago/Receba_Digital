@@ -1,3 +1,7 @@
+using RestaurantBooking.Api.Dispatchers;
+using RestaurantBooking.Application.Commands.CreateReservation;
+using RestaurantBooking.Application.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -35,6 +39,13 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+builder.Services.AddScoped<CommandDispatcher>();
+
+// Command Handlers
+builder.Services.AddScoped<
+    ICommandHandler<CreateReservationCommand, Guid>,
+    CreateReservationHandler>();
 
 app.Run();
 
