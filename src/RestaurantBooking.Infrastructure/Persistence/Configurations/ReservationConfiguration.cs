@@ -9,8 +9,29 @@ public class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
     public void Configure(EntityTypeBuilder<Reservation> builder)
     {
         builder.ToTable("reservations");
-        builder.HasKey(x => x.Id);
-        builder.Property(x => x.Status).HasConversion<string>();
-        builder.HasIndex(x => x.Code).IsUnique();
+
+        builder.HasKey(r => r.Id);
+
+        builder.Property(r => r.Id)
+            .HasColumnName("id");
+
+        builder.Property(r => r.Code)
+            .HasColumnName("code")
+            .IsRequired();
+
+        builder.Property(r => r.ReservationDate)
+            .HasColumnName("reservation_date")
+            .IsRequired();
+
+        builder.Property(r => r.NumberOfGuests)
+            .HasColumnName("number_of_guests")
+            .IsRequired();
+
+        builder.Property(r => r.Status)
+            .HasColumnName("status")
+            .HasConversion<string>()
+            .IsRequired();
+
+        builder.HasIndex(r => r.Code).IsUnique();
     }
 }
