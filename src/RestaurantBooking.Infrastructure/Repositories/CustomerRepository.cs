@@ -19,4 +19,11 @@ public class CustomerRepository : ICustomerRepository
         return await _context.Customers
             .FirstOrDefaultAsync(c => c.Id.Equals(id), ct);
     }
+    
+    public async Task AddAsync(Customer customer, CancellationToken ct = default)
+    {
+        await _context.Customers.AddAsync(customer, ct);
+        await _context.SaveChangesAsync(ct);
+    }
+
 }

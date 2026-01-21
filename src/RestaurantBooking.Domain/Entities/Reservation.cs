@@ -8,10 +8,10 @@ public class Reservation : AggregateRoot
 {
     public Guid Code { get; private set; }
 
-    public int CustomerId { get; private set; }
+    public Guid CustomerId { get; private set; }
     public Customer Customer { get; private set; }
 
-    public int RestaurantId { get; private set; }
+    public Guid RestaurantId { get; private set; }
     public Restaurant Restaurant { get; private set; }
 
     public DateTime ReservationDate { get; private set; }
